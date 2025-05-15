@@ -1,9 +1,13 @@
 import { type JSX } from 'react'
 
+import AppHeader from '../../components/header/header'
+import MainSection from '../../components/main-section/main-section'
+
 export default function MainPage(): JSX.Element {
   return (
     <div>
-      <h1>Main Page</h1>
+      <AppHeader />
+      <MainSection />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import { styled } from 'your-css-in-js-library'; // Use your preferred library (Panda CSS, Stitches, etc.)
+// import { styled } from 'styled-components'; // Use your preferred library (Panda CSS, Stitches, etc.)
 
 // Styled wrapper to maintain aspect ratio and match your design
 const VideoContainer = styled('div', {
