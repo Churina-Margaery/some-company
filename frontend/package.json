@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.0.1",
+    "@types/styled-components": "^5.1.34",
     "antd": "^5.25.1",
     "lite-youtube-embed": "^0.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
+    "react-hook-form": "^7.56.3",
     "react-lite-youtube-embed": "^2.5.1",
     "react-router-dom": "^7.6.0",
     "styled-components": "^6.1.18"
