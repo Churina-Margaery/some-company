@@ -25,26 +25,15 @@ const InfoSection: React.FC = () => {
       <SectionContainer>
         <StyledTitle level={2}>Also very important title</StyledTitle>
         <Row gutter={[32, 32]} justify="center">
-          {/* Первый ряд карточек */}
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
-          {/* Второй ряд карточек */}
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <InfoCard />
-          </Col>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <Col xs={24} sm={12} md={8} key={index}>
+              <InfoCard
+                key={index}
+                title={`Title ${index + 1}`}
+                description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum`}
+              />
+            </Col>
+          ))}
         </Row>
         <ContactButton />
       </SectionContainer>

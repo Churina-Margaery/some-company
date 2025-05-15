@@ -11,12 +11,18 @@ const StyledParagraph = styled(Paragraph)`
   color: #666;
   margin-bottom: 24px !important;
 `;
-const InfoCard: React.FC = () => {
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const InfoCard: React.FC<Props> = ({ title, description }) => {
   return (
     <>
-      <CardTitle level={3}>Title</CardTitle>
+      <CardTitle level={3}>{title}</CardTitle>
       <StyledParagraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum
+        {description}
       </StyledParagraph>
     </>
   );
