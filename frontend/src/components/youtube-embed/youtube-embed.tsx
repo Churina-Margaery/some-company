@@ -1,15 +1,15 @@
 import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import { styled } from 'your-css-in-js-library'; // Use your preferred library (Panda CSS, Stitches, etc.)
+import { styled } from 'styled-components'; // Use your preferred library (Panda CSS, Stitches, etc.)
 
 // Styled wrapper to maintain aspect ratio and match your design
-const VideoContainer = styled('div', {
-  width: '100%',
-  backgroundColor: '#f0f0f0',
-  borderRadius: '8px',
-  overflow: 'hidden',
-  position: 'relative',
-});
+const VideoContainer = styled.div`
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+`;
 
 // Define required CSS for the component
 const youtubeStyles = `
@@ -94,10 +94,10 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
         <LiteYouTubeEmbed
           id={videoId}
           title={title}
-          poster="maxresdefault" // Use high-quality thumbnail
-          webp={true} // Use WebP format when supported for better compression
-          cookie={false} // Enable privacy-enhanced mode
-          noCookie={true} // Use youtube-nocookie.com
+          poster="maxresdefault"
+          webp={true}
+          cookie={false}
+          noCookie={true}
         />
       </VideoContainer>
     </>

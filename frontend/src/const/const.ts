@@ -1,4 +1,4 @@
-export enum AppRoute {
+export enum ROUTES {
   Root = '/',
   Contacts = '/contacts',
 }

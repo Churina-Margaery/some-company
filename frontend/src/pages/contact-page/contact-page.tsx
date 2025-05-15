@@ -1,9 +1,12 @@
 import { type JSX } from 'react'
+import Header from '../../components/header/header'
+import Footer from '../../components/footer/footer'
 
 export default function ContactPage(): JSX.Element {
   return (
-    <div>
-      <h1>Contact Page</h1>
-    </div>
+    <>
+      <Header />
+      <Footer />
+    </>
   )
 }

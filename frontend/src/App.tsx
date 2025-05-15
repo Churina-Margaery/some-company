@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 // import './App.css'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AppRoute } from './const/const'
+import { ROUTES } from './const/const'
 import MainPage from './pages/main-page/main-page'
 import ContactPage from './pages/contact-page/contact-page'
 function App(): JSX.Element {
@@ -14,13 +14,13 @@ function App(): JSX.Element {
         {/* <BrowserRouter basename='/some-company'> */}
         < Routes >
           <Route
-            path={AppRoute.Root}
+            path={ROUTES.Root}
             element={
               <MainPage />
             }
           />
           <Route
-            path={AppRoute.Contacts}
+            path={ROUTES.Contacts}
             element={
               <ContactPage />
             }
