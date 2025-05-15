@@ -1,6 +1,9 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
-// import YouTubeEmbed from '../youtube-embed/youtube-embed'; // Импортируйте ваш готовый компонент
+
+import YouTubeEmbed from '../youtube-embed/youtube-embed';
+import InfoSection from '../info-section/info-section';
+import Footer from '../footer/footer';
 
 const { Title, Paragraph } = Typography;
 
@@ -15,9 +18,11 @@ const MainSection: React.FC = () => {
           </Paragraph>
         </Col>
         <Col span={12}>
-          {/* <YouTubeEmbed videoId="YOUR_VIDEO_ID" title="YouTube video" /> */}
+          <YouTubeEmbed videoId="dQw4w9WgXcQ" title="Never Gonna Give You Up" />
         </Col>
       </Row>
+      <InfoSection />
+      <Footer />
     </div>
   );
 };
