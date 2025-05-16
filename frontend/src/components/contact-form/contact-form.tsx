@@ -3,6 +3,7 @@ import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
 import { useState } from 'react';
 import Message from '../message/message';
+import api from '../../services/api';
 
 interface FormValues {
   name: string;
@@ -114,6 +115,8 @@ const StyledSubmitButton = styled(SubmitButton)`
 
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [response, setResponse] = useState('');
+
   const methods = useForm<FormValues>({
     defaultValues: {
       name: '',
@@ -124,15 +127,22 @@ export const ContactForm = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
-    // Здесь будет логика отправки формы
-    setIsSubmitted(true);
-    methods.reset();
+    api.post('/contact', data)
+      .then(response => {
+        console.log(response.data);
+        setIsSubmitted(true);
+        setResponse(response.data.message);
+        methods.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error.response ? error.response.data : error.message);
+      });
   };
 
   return (
     <SectionContainer>
       {isSubmitted ? (
-        <Message />
+        <Message response={response} />
       ) : (
         <FormProvider {...methods}>
           <TitleStyled level={1}>Only CTA on the page</TitleStyled>

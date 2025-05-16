@@ -18,10 +18,14 @@ const Title = styled.h1`
   font-family: 'Times New Roman', Times, serif !important;
 `;
 
-const Message: React.FC = () => {
+interface Props {
+  response: string;
+}
+
+const Message: React.FC<Props> = ({ response }) => {
   return (
     <StyledCard>
-      <Title>Thank you for your message!</Title>
+      <Title>{response}</Title>
     </StyledCard>
   );
 };
