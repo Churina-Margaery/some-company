@@ -8,8 +8,8 @@ import InfoCard from '../info-card/info-card';
 
 const { Title } = Typography;
 
-const SectionContainer = styled.div`
-  padding: 60px 20px;
+const SectionContainer = styled.section`
+  padding: 60px 40px;
   background-color: #fff;
   text-align: center;
 `;
@@ -19,12 +19,16 @@ const StyledTitle = styled(Title)`
   font-size: 48px !important;
 `;
 
+const StyledRow = styled(Row)`
+  padding: 40px 0px;
+`;
+
 const InfoSection: React.FC = () => {
   return (
     <>
       <SectionContainer>
         <StyledTitle level={2}>Also very important title</StyledTitle>
-        <Row gutter={[32, 32]} justify="center">
+        <StyledRow gutter={[32, 32]} justify="center">
           {Array.from({ length: 6 }).map((_, index) => (
             <Col xs={24} sm={12} md={8} key={index}>
               <InfoCard
@@ -34,12 +38,7 @@ const InfoSection: React.FC = () => {
               />
             </Col>
           ))}
-        </Row>
-        <ContactButton />
-      </SectionContainer>
-
-      <SectionContainer>
-        <StyledTitle level={2}>Less important title</StyledTitle>
+        </StyledRow>
         <ContactButton />
       </SectionContainer>
     </>

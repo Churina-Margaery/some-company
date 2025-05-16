@@ -6,10 +6,11 @@ import styled from 'styled-components';
 const { Title } = Typography;
 
 const FooterContainer = styled.footer`
-  padding: 40px 20px;
+  padding: 40px 40px;
   text-align: center;
   background-color: #fff;
   margin-top: 60px;
+  margin-bottom: 60px;
 `;
 
 const CompanyTitle = styled(Title)`
@@ -20,7 +21,7 @@ const CompanyTitle = styled(Title)`
 const Footer: React.FC = () => {
   return (
     <FooterContainer>
-      <CompanyTitle level={4}>Some Company 2024</CompanyTitle>
+      <CompanyTitle level={4}>Some Company 2025</CompanyTitle>
     </FooterContainer>
   );
 };

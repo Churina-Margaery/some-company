@@ -15,6 +15,7 @@ const Title = styled.h1`
   font-size: 48px;
   font-weight: bold;
   margin: 0;
+  font-family: 'Times New Roman', Times, serif !important;
 `;
 
 const Message: React.FC = () => {
