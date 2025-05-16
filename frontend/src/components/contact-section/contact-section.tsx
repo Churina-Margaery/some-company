@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.section`
   padding: 70px 40px;
   background-color: #f5f5f5;
   text-align: center;

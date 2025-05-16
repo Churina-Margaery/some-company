@@ -8,12 +8,12 @@ import ContactSection from '../../components/contact-section/contact-section'
 
 export default function MainPage(): JSX.Element {
   return (
-    <div>
+    <>
       <AppHeader />
       <MainSection />
       <InfoSection />
       <ContactSection />
       <Footer />
-    </div>
+    </>
   )
 }

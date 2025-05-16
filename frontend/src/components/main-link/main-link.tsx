@@ -12,7 +12,7 @@ interface Props {
 const TitleStyled = styled(Title)`
   font-size: 30px;
   font-weight: bold;
-  margin: 0;
+  margin: 0 !important;
   @media (max-width: 768px) {
     font-size: 24px !important;
   }

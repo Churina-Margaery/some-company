@@ -32,7 +32,6 @@ const StyledForm = styled(Form)`
 `;
 
 const FormTitle = styled.h2`
-  font-family: 'Times New Roman', Times, serif !important;
   font-size: 32px;
   text-align: center;
   margin-bottom: 24px;
@@ -94,7 +93,7 @@ const ErrorText = styled.span`
 const StyledFormItem = styled(Form.Item)`
   &&& {
     .ant-form-item-label > label {
-      font-family: 'Times New Roman', Times, serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px; 
     }
   }

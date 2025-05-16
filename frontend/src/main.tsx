@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   .ant-btn, 
   .ant-typography,
   .ant-menu {
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 

@@ -8,7 +8,7 @@ import InfoCard from '../info-card/info-card';
 
 const { Title } = Typography;
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.section`
   padding: 60px 40px;
   background-color: #fff;
   text-align: center;
