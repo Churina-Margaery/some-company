@@ -11,7 +11,7 @@ interface Props {
 const MainLink: React.FC<Props> = ({ title }) => {
   return (
     <Link to={ROUTES.Root}>
-      <Title level={1} style={{ margin: 0, fontSize: '24px', fontWeight: 'bold' }}>
+      <Title level={1} style={{ margin: 0, fontSize: '30px', fontWeight: 'bold' }}>
         {title}
       </Title>
     </Link>

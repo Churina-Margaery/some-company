@@ -10,6 +10,7 @@ const CardTitle = styled(Title)`
 const StyledParagraph = styled(Paragraph)`
   color: #666;
   margin-bottom: 24px !important;
+  padding: 0  40px;
 `;
 
 interface Props {
