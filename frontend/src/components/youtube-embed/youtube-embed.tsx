@@ -1,6 +1,6 @@
 import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 // Styled wrapper to maintain aspect ratio and match your design
 const VideoContainer = styled.div`

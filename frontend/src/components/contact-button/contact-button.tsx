@@ -17,14 +17,6 @@ const ContactButtonStyled = styled(Button)`
     padding: 0 24px !important;
   }
 
-  &:hover {
-  border-radius: 10px;
-  height: 40px;
-  padding: 0 58px;
-  font-size: 18px;
-  color: #fff;
-  background-color: #2c2c2c;
-
   &:hover,
   &:focus {
     background-color: #4a4a4a !important;

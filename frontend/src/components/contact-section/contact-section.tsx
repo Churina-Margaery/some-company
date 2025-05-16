@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import ContactButton from "../contact-button/contact-button";
 import { Typography } from 'antd';
 

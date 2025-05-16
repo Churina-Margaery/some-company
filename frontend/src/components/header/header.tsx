@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 
 import ContactButton from '../contact-button/contact-button';
 import MainLink from '../main-link/main-link';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 const { Header } = Layout;
 
