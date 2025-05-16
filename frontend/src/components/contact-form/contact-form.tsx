@@ -65,7 +65,7 @@ const StyledTextArea = styled(Input.TextArea)`
     &:focus {
       border-color: rgb(0, 0, 0);
       box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-    }
+    } 
   }
 `;
 
@@ -101,6 +101,7 @@ const StyledFormItem = styled(Form.Item)`
 `;
 
 const StyledSubmitButton = styled(SubmitButton)`
+  font-size: 18px;
   &:hover,
   &:focus {
     background-color: #4a4a4a !important;

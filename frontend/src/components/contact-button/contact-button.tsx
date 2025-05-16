@@ -12,6 +12,10 @@ const ContactButtonStyled = styled(Button)`
   color: #fff;
   background-color: #2c2c2c;
 
+  @media (max-width: 768px) {
+    font-size: 16px !important;
+    padding: 0 24px !important;
+  }
 
   &:hover {
   border-radius: 10px;
@@ -20,6 +24,7 @@ const ContactButtonStyled = styled(Button)`
   font-size: 18px;
   color: #fff;
   background-color: #2c2c2c;
+
   &:hover,
   &:focus {
     background-color: #4a4a4a !important;
@@ -28,7 +33,8 @@ const ContactButtonStyled = styled(Button)`
     color: #fff !important;
     border: none !important;
     transition: all 0.3s ease;
-  }
+  };
+
 `;
 
 const ContactButton: React.FC = () => {
