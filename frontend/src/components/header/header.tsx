@@ -13,12 +13,11 @@ const HeaderStyled = styled(Header)`
   align-items: center;
   background-color: #fff;
   padding: 20px 50px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   
   @media (max-width: 768px) {
     padding: 15px 20px;

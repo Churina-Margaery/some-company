@@ -2,6 +2,7 @@ import { useForm, Controller, FormProvider } from 'react-hook-form';
 import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import Message from '../message/message';
 import api from '../../services/api';
 
@@ -84,13 +85,6 @@ const SubmitButton = styled(Button)`
   }
 `;
 
-const ErrorText = styled.span`
-  font-size: 14px; /* 0.875rem = 14px */
-  color: #ff4d4f;
-  margin-top: 4px;
-  display: block;
-`;
-
 const StyledFormItem = styled(Form.Item)`
   &&& {
     .ant-form-item-label > label {
@@ -115,6 +109,7 @@ const StyledSubmitButton = styled(SubmitButton)`
 
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState('');
 
   const methods = useForm<FormValues>({
@@ -127,20 +122,25 @@ export const ContactForm = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
+    setIsLoading(true);
     api.post('/contact', data)
       .then(response => {
         console.log(response.data);
         setIsSubmitted(true);
         setResponse(response.data.message);
         methods.reset();
+        setIsLoading(false);
       })
       .catch(error => {
+        toast.error(error.response ? error.response.data : error.message);
         console.error('Error:', error.response ? error.response.data : error.message);
+        setIsLoading(false);
       });
   };
 
   return (
     <SectionContainer>
+      <ToastContainer />
       {isSubmitted ? (
         <Message response={response} />
       ) : (
@@ -160,7 +160,6 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledInput {...field} placeholder="Enter your name" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
                   </>
                 )}
               />
@@ -180,7 +179,7 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledInput {...field} placeholder="Enter your email" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
+                    {fieldState.error}
                   </>
                 )}
               />
@@ -194,14 +193,14 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledTextArea {...field} placeholder="Enter your message" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
+                    {fieldState.error}
                   </>
                 )}
               />
             </StyledFormItem>
 
             <StyledFormItem>
-              <StyledSubmitButton type="primary" htmlType="submit">
+              <StyledSubmitButton type="primary" htmlType="submit" disabled={isLoading}>
                 Submit
               </StyledSubmitButton>
             </StyledFormItem>

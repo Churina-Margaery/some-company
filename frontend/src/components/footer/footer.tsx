@@ -9,10 +9,11 @@ const FooterContainer = styled.footer`
   padding: 20px 40px;
   text-align: center;
   background-color: #fff;
-  border-top: 1px solid #e0e0e0;
+  border-top: 2px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   width: 100%;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
-  margin-top: auto;
   
   @media (max-width: 768px) {
     padding: 20px;
