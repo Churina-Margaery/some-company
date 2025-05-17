@@ -1,8 +1,9 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
-
 import YouTubeEmbed from '../youtube-embed/youtube-embed';
 import styled from 'styled-components';
+
+import colors from '../../../styles/colors';
 
 const { Title, Paragraph } = Typography;
 
@@ -34,8 +35,6 @@ const ParagraphStyled = styled(Paragraph)`
 const MainSectionStyled = styled.section`
   margin: 0 0;
   padding: 40px;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #e0e0e0;
 `;
 
 const MainSection: React.FC = () => {

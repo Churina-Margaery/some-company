@@ -3,13 +3,14 @@ import React from 'react';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
+import colors from '../../../styles/colors';
+
 const { Title } = Typography;
 
 const FooterContainer = styled.footer`
   padding: 20px 40px;
   text-align: center;
-  background-color: #fff;
-  border-top: 2px solid #e0e0e0;
+  box-shadow: 0 10px 10px 10px ${colors.pink};
   position: sticky;
   top: 0;
   z-index: 1000;

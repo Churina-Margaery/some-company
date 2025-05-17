@@ -6,10 +6,7 @@ const { Title } = Typography;
 
 const SectionContainer = styled.section`
   padding: 70px 40px;
-  background-color: #f5f5f5;
   text-align: center;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
 `;
 
 const StyledTitle = styled(Title)`

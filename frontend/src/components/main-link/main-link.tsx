@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import { Link } from 'react-router-dom';
+
 import { ROUTES } from '../../const/const';
 import styled from 'styled-components';
 

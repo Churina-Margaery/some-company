@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import Message from '../message/message';
 import api from '../../services/api';
+import colors from '../../../styles/colors';
 
 interface FormValues {
   name: string;
@@ -37,7 +38,7 @@ const FormTitle = styled.h2`
   font-size: 32px;
   text-align: center;
   margin-bottom: 24px;
-  color: rgb(0, 0, 0);
+  color: ${colors.white} !important;
 `;
 
 const StyledInput = styled(Input)`
@@ -46,6 +47,7 @@ const StyledInput = styled(Input)`
     border-radius: 4px;
     padding: 8px 12px;
     transition: all 0.3s;
+    color: ${colors.black} !important;
 
     &:focus {
       border-color: rgb(0, 0, 0);
@@ -62,6 +64,7 @@ const StyledTextArea = styled(Input.TextArea)`
     resize: vertical;
     min-height: 100px;
     line-height: 1.5;
+    color: ${colors.black} !important;
 
     &:focus {
       border-color: rgb(0, 0, 0);
@@ -74,13 +77,11 @@ const SubmitButton = styled(Button)`
   font-size: 16px;
   width: 100%;
   margin-top: 16px; /* 1rem = 16px */
-  background-color: rgb(0, 0, 0);
   color: white;
   height: 40px;
   font-weight: 500;
 
   &:hover {
-    background-color: rgb(0, 0, 0) !important;
     color: white !important;
   }
 `;
@@ -96,15 +97,20 @@ const StyledFormItem = styled(Form.Item)`
 
 const StyledSubmitButton = styled(SubmitButton)`
   font-size: 18px;
+  background-color: ${colors.pink} !important;
   &:hover,
   &:focus {
-    background-color: #4a4a4a !important;
     transform: scale(1.02);
-    background-image: linear-gradient(45deg,#394869,#A79EB4) !important;
-    color: #fff !important;
     border: none !important;
     transition: all 0.3s ease;
   }
+`;
+
+const ErrorText = styled.span`
+  font-size: 14px;
+  color: ${colors.pink};
+  margin-top: 4px;
+  display: block;
 `;
 
 export const ContactForm = () => {
@@ -160,6 +166,11 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledInput {...field} placeholder="Enter your name" />
+                    {fieldState.error && (
+                      <ErrorText id="name-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
                   </>
                 )}
               />
@@ -179,7 +190,12 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledInput {...field} placeholder="Enter your email" />
-                    {fieldState.error}
+                    {fieldState.error && (
+                      <ErrorText id="email-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
+
                   </>
                 )}
               />
@@ -193,7 +209,11 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledTextArea {...field} placeholder="Enter your message" />
-                    {fieldState.error}
+                    {fieldState.error && (
+                      <ErrorText id="message-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
                   </>
                 )}
               />

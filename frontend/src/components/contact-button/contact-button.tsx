@@ -3,14 +3,18 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 import { ROUTES } from '../../const/const';
+import colors from '../../../styles/colors';
 
 const ContactButtonStyled = styled(Button)`
-  border-radius: 10px;
-  height: 40px;
-  padding: 0 58px;
-  font-size: 18px;
-  color: #fff;
-  background-color: #2c2c2c;
+  background: ${colors.pink} !important;
+  color: ${colors.white} !important;
+  border: none !important;
+  padding: 14px 32px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: background 0.3s ease;
 
   @media (max-width: 768px) {
     font-size: 16px !important;
@@ -19,14 +23,12 @@ const ContactButtonStyled = styled(Button)`
 
   &:hover,
   &:focus {
-    background-color: #4a4a4a !important;
     transform: scale(1.07);
-    background-image: linear-gradient(45deg,#394869,#A79EB4) !important;
-    color: #fff !important;
+    background: ${colors.pink} !important;
+    color: ${colors.white} !important;
     border: none !important;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease !important;
   };
-
 `;
 
 const ContactButton: React.FC = () => {
