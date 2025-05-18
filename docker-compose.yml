@@ -1,0 +1,32 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - some-company-network
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_SERVER: ${API_URL}
+    depends_on:
+      - backend
+    networks:
+      - some-company-network
+
+  backend:
+    build:
+      context: ./backend
+    networks:
+      - some-company-network
+
+networks:
+  some-company-network:
+    driver: bridge

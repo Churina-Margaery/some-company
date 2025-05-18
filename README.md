@@ -1,4 +1,6 @@
 # Two-Page Website
+demo: https://margaery.tishenko.dev/  
+
 ![demo](./demonstration/preview.gif)
 
 ## Tech Stack
@@ -63,7 +65,7 @@ uvicorn main:app --reload
 - Implemented a consistent color scheme
 - Created reusable styled components for common UI elements
 - Added hover and focus states for better user interaction
-- Sticky header and footer on all pages  
+- Sticky header and footer on both pages  
 - Used modern CSS features like flexbox and CSS Grid for responsive layouts
 
 ### Form Implementation
@@ -80,9 +82,10 @@ uvicorn main:app --reload
 ![backend logs](./demonstration/backend-logs.png)
 - Returns personalized response message
 
-## Hosting
-
-in progress
+### Deployment:
+- Create a `.env` file similar to `.env.example`.
+- To deploy the application on port 8125, use `docker compose up`.
+- The API is available at `http://{your_url}/api`.
 
 ## Author
 

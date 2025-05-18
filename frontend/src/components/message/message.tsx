@@ -70,9 +70,9 @@ const Message: FC<Props> = ({ response }) => {
   return (
     <StyledCard role="status" aria-live="polite">
       <Title>{response}</Title>
-      <Link to="/">
+      <Link to="https://t.me/margaery8">
         <StyledButton type="primary" size="large">
-          Return to Home
+          Contact to offer
         </StyledButton>
       </Link>
     </StyledCard>

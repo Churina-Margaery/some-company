@@ -1,6 +1,6 @@
 import axios, { type AxiosError, type AxiosInstance } from 'axios';
 
-const BACKEND_URL = import.meta.env.VITE_SERVER as string;
+const BACKEND_URL = `${import.meta.env.VITE_SERVER}`;
 const REQUEST_TIMEOUT = 5000;
 
 interface ApiError {
