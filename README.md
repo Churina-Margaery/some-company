@@ -80,25 +80,10 @@ uvicorn main:app --reload
 ![backend logs](./demonstration/backend-logs.png)
 - Returns personalized response message
 
-## Hosting
-
-### Backend  
-
-- Build the image  
-`docker build -t fastapi-backend .`
-
-- Run the container  
-`docker run -p 8000:8000 fastapi-backend`  
-
-### Frontend  
-
-- Create .env file
-
-- Build the image  
-`docker build -t frontend .`
-
-- Run the container  
-`docker run -p 80:80 frontend`
+### Deployment:
+- Create a `.env` file similar to `.env.example`.
+- To deploy the application on port 8125, use `docker compose up`.
+- The API is available at `http://{your_url}/api`.
 
 ## Author
 
