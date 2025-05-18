@@ -82,7 +82,21 @@ uvicorn main:app --reload
 
 ## Hosting
 
-in progress
+### Backend  
+
+- Build the image  
+`docker build -t fastapi-backend .`
+
+- Run the container  
+`docker run -p 8000:8000 fastapi-backend`  
+
+### Frontend  
+
+- Build the image  
+`docker build -t frontend .`
+
+- Run the container  
+`docker run -p 80:80 frontend`
 
 ## Author
 
