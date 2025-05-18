@@ -1,8 +1,8 @@
 const colors = {
   lightBlue: '#EBF1FF',
   pink: '#DC244C',
-  darkBlue: '#29196e',
-  darkBlue2: '#22145c',
+  darkBlue: '#180738',
+  darkBlue2: '#12032B',
   white: '#FFFFFF',
   black: '#000000',
 };

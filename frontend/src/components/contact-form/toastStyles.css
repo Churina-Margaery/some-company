@@ -1,0 +1,21 @@
+frontend/src/styles/toastStyles.css .Toastify__Toast {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.Toastify__toast--error {
+  border: 2px solid #DC244C;
+}
+
+.Toastify__toast--error .Toastify__icon {
+  color: #DC244C !important;
+}
+
+.Toastify__toast--error .Toastify__progress-bar {
+  background: #DC244C !important;
+}
+
+.Toastify__Toast--close-button {
+  color: #000000;
+}

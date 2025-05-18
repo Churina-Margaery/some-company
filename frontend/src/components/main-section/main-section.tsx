@@ -3,7 +3,6 @@ import { Row, Col, Typography } from 'antd';
 import YouTubeEmbed from '../youtube-embed/youtube-embed';
 import styled from 'styled-components';
 
-import colors from '../../../styles/colors';
 
 const { Title, Paragraph } = Typography;
 
@@ -37,6 +36,10 @@ const MainSectionStyled = styled.section`
   padding: 40px;
 `;
 
+/**
+ * MainSection Component
+ * Renders the main hero section of the website.
+ */
 const MainSection: React.FC = () => {
   return (
     <MainSectionStyled>

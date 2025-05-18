@@ -18,13 +18,17 @@ const HeaderStyled = styled(Header)`
   top: 0;
   z-index: 1000;
   width: 100%;
-  box-shadow: 0 1px 10px 1px ${colors.pink};
+  border-bottom: 1px solid ${colors.pink};
   
   @media (max-width: 768px) {
     padding: 15px 20px;
   }
 `;
 
+/**
+ * AppHeader Component
+ * Renders the main header of the application with navigation link and contact button.
+ */
 const AppHeader: React.FC = () => {
   return (
     <HeaderStyled role="banner" aria-label="Site header">

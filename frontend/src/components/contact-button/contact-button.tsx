@@ -31,6 +31,10 @@ const ContactButtonStyled = styled(Button)`
   };
 `;
 
+/**
+ * ContactButton Component
+ * A styled button component that links to the contact page.
+ */
 const ContactButton: React.FC = () => {
   return (
     <Link to={ROUTES.Contacts}>

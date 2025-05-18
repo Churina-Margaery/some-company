@@ -24,6 +24,10 @@ const StyledRow = styled(Row)`
   padding: 40px 0px;
 `;
 
+/**
+ * InfoSection Component
+ * Displays information cards with titles and descriptions.
+ */
 const InfoSection: React.FC = () => {
   return (
     <>

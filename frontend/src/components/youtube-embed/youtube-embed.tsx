@@ -86,6 +86,12 @@ interface YouTubeEmbedProps {
   title: string;
 }
 
+/**
+ * YouTubeEmbed Component
+ * Uses react-lite-youtube-embed for better performance.
+ * @param {string} videoId - The YouTube video ID to embed
+ * @param {string} title - The title of the video for accessibility
+ */
 const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
   return (
     <>

@@ -3,9 +3,11 @@ import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
+
 import Message from '../message/message';
 import api from '../../services/api';
 import colors from '../../../styles/colors';
+import './toastStyles.css';
 
 interface FormValues {
   name: string;
@@ -26,7 +28,7 @@ const TitleStyled = styled(Title)`
   }
 `;
 
-const StyledForm = styled(Form)`
+const StyledForm = styled.form`
   max-width: 600px;
   margin: 32px auto;
   padding: 32px;
@@ -88,9 +90,23 @@ const SubmitButton = styled(Button)`
 
 const StyledFormItem = styled(Form.Item)`
   &&& {
+    .ant-form-item-label {
+      display: block;
+      text-align: left;
+    }
+
+    .ant-form-item-control {
+      display: block;
+      width: 100%;
+    }
+
     .ant-form-item-label > label {
+      display: block;
+      width: 100%;
+      font-size: 18px;
+      color: ${colors.white};
+      margin-bottom: 4px;
       font-family: 'Roboto', sans-serif !important;
-      font-size: 18px; 
     }
   }
 `;
@@ -113,6 +129,10 @@ const ErrorText = styled.span`
   display: block;
 `;
 
+/**
+ * ContactForm Component
+ * Renders a contact form with name, email, and message fields.
+ */
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -127,11 +147,9 @@ export const ContactForm = () => {
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log(data);
     setIsLoading(true);
     api.post('/contact', data)
       .then(response => {
-        console.log(response.data);
         setIsSubmitted(true);
         setResponse(response.data.message);
         methods.reset();
@@ -153,8 +171,7 @@ export const ContactForm = () => {
         <FormProvider {...methods}>
           <TitleStyled level={1}>Only CTA on the page</TitleStyled>
           <StyledForm
-            layout="vertical"
-            onFinish={methods.handleSubmit(onSubmit)}
+            onSubmit={methods.handleSubmit(onSubmit)}
           >
             <FormTitle>Contact Us</FormTitle>
 
@@ -165,7 +182,7 @@ export const ContactForm = () => {
                 rules={{ required: 'Name is required' }}
                 render={({ field, fieldState }) => (
                   <>
-                    <StyledInput {...field} placeholder="Enter your name" />
+                    <StyledInput id="name-input" {...field} placeholder="Enter your name" />
                     {fieldState.error && (
                       <ErrorText id="name-error" role="alert">
                         {fieldState.error.message}
@@ -189,7 +206,7 @@ export const ContactForm = () => {
                 }}
                 render={({ field, fieldState }) => (
                   <>
-                    <StyledInput {...field} placeholder="Enter your email" />
+                    <StyledInput id="email-input" {...field} placeholder="Enter your email" />
                     {fieldState.error && (
                       <ErrorText id="email-error" role="alert">
                         {fieldState.error.message}

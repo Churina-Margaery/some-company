@@ -8,11 +8,12 @@ import colors from '../../../styles/colors';
 const { Title } = Typography;
 
 const FooterContainer = styled.footer`
-  padding: 20px 40px;
+  padding: 16px 40px;
   text-align: center;
-  box-shadow: 0 10px 10px 10px ${colors.pink};
+  border-top: 1px solid ${colors.pink};
+  background-color: ${colors.darkBlue2};
   position: sticky;
-  top: 0;
+  bottom: 0;
   z-index: 1000;
   width: 100%;
   

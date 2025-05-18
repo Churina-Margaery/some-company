@@ -12,10 +12,11 @@ const StyledCard = styled(Card)`
   margin: 40px auto;
   text-align: center;
   border-radius: 12px;
-  padding: 40px 20px;
+  padding: 20px 20px;
   
   @media (max-width: 768px) {
-    padding: 30px 20px;
+    padding: 10px 20px;
+    max-width: 300px;
   }
 `;
 
@@ -41,6 +42,13 @@ const StyledButton = styled(Button)`
   cursor: pointer !important;
   transition: background 0.3s ease;
   font-weight: 600 !important;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+    border: none !important;
+    transition: all 0.3s ease;
+  }
   
   @media (max-width: 768px) {
     min-width: 160px;
@@ -53,6 +61,11 @@ interface Props {
   response: string;
 }
 
+/**
+ * Message Component
+ * Displays a success message card after successful form submission.
+ * @param {string} response - The message to display in the card
+ */
 const Message: FC<Props> = ({ response }) => {
   return (
     <StyledCard role="status" aria-live="polite">

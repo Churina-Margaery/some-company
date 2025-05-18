@@ -18,6 +18,12 @@ interface Props {
   description: string;
 }
 
+/**
+ * InfoCard Component
+ * Displays a card with a title and description.
+ * @param {string} title - The title to display at the top of the card
+ * @param {string} description - The descriptive text to display in the card body
+ */
 const InfoCard: React.FC<Props> = ({ title, description }) => {
   return (
     <>
