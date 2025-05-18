@@ -71,12 +71,14 @@ uvicorn main:app --reload
 ### Form Implementation
 - Built with `React Hook Form` for efficient form handling
 - Added client-side validation
-- Implemented error states and messages
+- Implemented error states and messages  
+<img src="./demonstration/error.png" alt="contact page" width="200" />
 - Added loading states during submission
 
 ### Backend Integration
 - Simple Python backend to handle form submissions
 - Logs form data to console
+![backend logs](./demonstration/backend-logs.png)
 - Returns personalized response message
 
 ## Hosting
