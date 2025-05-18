@@ -62,6 +62,7 @@ uvicorn main:app --reload
 - Added client-side validation
 - Implemented error states and messages  
 <img src="./demonstration/error.png" alt="contact page" width="200" />
+
 - Added loading states during submission
 
 ### YouTube Video Optimization
