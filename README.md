@@ -63,7 +63,7 @@ uvicorn main:app --reload
 - Implemented a consistent color scheme
 - Created reusable styled components for common UI elements
 - Added hover and focus states for better user interaction
-- Sticky header and footer on all pages  
+- Sticky header and footer on both pages  
 - Used modern CSS features like flexbox and CSS Grid for responsive layouts
 
 ### Form Implementation
