@@ -1,5 +1,5 @@
 # Two-Page Website
-demo: https://margaery.tishenko.dev/  
+https://margaery.tishenko.dev/  
 
 ![demo](./demonstration/preview.gif)
 
