@@ -2,8 +2,12 @@ import { useForm, Controller, FormProvider } from 'react-hook-form';
 import { Form, Input, Button, Typography } from 'antd';
 import styled from 'styled-components';
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+
 import Message from '../message/message';
 import api from '../../services/api';
+import colors from '../../../styles/colors';
+import './toastStyles.css';
 
 interface FormValues {
   name: string;
@@ -24,7 +28,7 @@ const TitleStyled = styled(Title)`
   }
 `;
 
-const StyledForm = styled(Form)`
+const StyledForm = styled.form`
   max-width: 600px;
   margin: 32px auto;
   padding: 32px;
@@ -36,7 +40,7 @@ const FormTitle = styled.h2`
   font-size: 32px;
   text-align: center;
   margin-bottom: 24px;
-  color: rgb(0, 0, 0);
+  color: ${colors.white} !important;
 `;
 
 const StyledInput = styled(Input)`
@@ -45,6 +49,7 @@ const StyledInput = styled(Input)`
     border-radius: 4px;
     padding: 8px 12px;
     transition: all 0.3s;
+    color: ${colors.black} !important;
 
     &:focus {
       border-color: rgb(0, 0, 0);
@@ -61,6 +66,7 @@ const StyledTextArea = styled(Input.TextArea)`
     resize: vertical;
     min-height: 100px;
     line-height: 1.5;
+    color: ${colors.black} !important;
 
     &:focus {
       border-color: rgb(0, 0, 0);
@@ -73,48 +79,63 @@ const SubmitButton = styled(Button)`
   font-size: 16px;
   width: 100%;
   margin-top: 16px; /* 1rem = 16px */
-  background-color: rgb(0, 0, 0);
   color: white;
   height: 40px;
   font-weight: 500;
 
   &:hover {
-    background-color: rgb(0, 0, 0) !important;
     color: white !important;
   }
 `;
 
-const ErrorText = styled.span`
-  font-size: 14px; /* 0.875rem = 14px */
-  color: #ff4d4f;
-  margin-top: 4px;
-  display: block;
-`;
-
 const StyledFormItem = styled(Form.Item)`
   &&& {
+    .ant-form-item-label {
+      display: block;
+      text-align: left;
+    }
+
+    .ant-form-item-control {
+      display: block;
+      width: 100%;
+    }
+
     .ant-form-item-label > label {
+      display: block;
+      width: 100%;
+      font-size: 18px;
+      color: ${colors.white};
+      margin-bottom: 4px;
       font-family: 'Roboto', sans-serif !important;
-      font-size: 18px; 
     }
   }
 `;
 
 const StyledSubmitButton = styled(SubmitButton)`
   font-size: 18px;
+  background-color: ${colors.pink} !important;
   &:hover,
   &:focus {
-    background-color: #4a4a4a !important;
     transform: scale(1.02);
-    background-image: linear-gradient(45deg,#394869,#A79EB4) !important;
-    color: #fff !important;
     border: none !important;
     transition: all 0.3s ease;
   }
 `;
 
+const ErrorText = styled.span`
+  font-size: 14px;
+  color: ${colors.pink};
+  margin-top: 4px;
+  display: block;
+`;
+
+/**
+ * ContactForm Component
+ * Renders a contact form with name, email, and message fields.
+ */
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState('');
 
   const methods = useForm<FormValues>({
@@ -126,29 +147,31 @@ export const ContactForm = () => {
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log(data);
+    setIsLoading(true);
     api.post('/contact', data)
       .then(response => {
-        console.log(response.data);
         setIsSubmitted(true);
         setResponse(response.data.message);
         methods.reset();
+        setIsLoading(false);
       })
       .catch(error => {
+        toast.error(error.response ? error.response.data : error.message);
         console.error('Error:', error.response ? error.response.data : error.message);
+        setIsLoading(false);
       });
   };
 
   return (
     <SectionContainer>
+      <ToastContainer />
       {isSubmitted ? (
         <Message response={response} />
       ) : (
         <FormProvider {...methods}>
           <TitleStyled level={1}>Only CTA on the page</TitleStyled>
           <StyledForm
-            layout="vertical"
-            onFinish={methods.handleSubmit(onSubmit)}
+            onSubmit={methods.handleSubmit(onSubmit)}
           >
             <FormTitle>Contact Us</FormTitle>
 
@@ -159,8 +182,12 @@ export const ContactForm = () => {
                 rules={{ required: 'Name is required' }}
                 render={({ field, fieldState }) => (
                   <>
-                    <StyledInput {...field} placeholder="Enter your name" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
+                    <StyledInput id="name-input" {...field} placeholder="Enter your name" />
+                    {fieldState.error && (
+                      <ErrorText id="name-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
                   </>
                 )}
               />
@@ -179,8 +206,13 @@ export const ContactForm = () => {
                 }}
                 render={({ field, fieldState }) => (
                   <>
-                    <StyledInput {...field} placeholder="Enter your email" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
+                    <StyledInput id="email-input" {...field} placeholder="Enter your email" />
+                    {fieldState.error && (
+                      <ErrorText id="email-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
+
                   </>
                 )}
               />
@@ -194,14 +226,18 @@ export const ContactForm = () => {
                 render={({ field, fieldState }) => (
                   <>
                     <StyledTextArea {...field} placeholder="Enter your message" />
-                    {fieldState.error && <ErrorText>{fieldState.error.message}</ErrorText>}
+                    {fieldState.error && (
+                      <ErrorText id="message-error" role="alert">
+                        {fieldState.error.message}
+                      </ErrorText>
+                    )}
                   </>
                 )}
               />
             </StyledFormItem>
 
             <StyledFormItem>
-              <StyledSubmitButton type="primary" htmlType="submit">
+              <StyledSubmitButton type="primary" htmlType="submit" disabled={isLoading}>
                 Submit
               </StyledSubmitButton>
             </StyledFormItem>

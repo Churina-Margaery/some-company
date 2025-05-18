@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
-
 import YouTubeEmbed from '../youtube-embed/youtube-embed';
 import styled from 'styled-components';
+
 
 const { Title, Paragraph } = Typography;
 
@@ -34,10 +34,12 @@ const ParagraphStyled = styled(Paragraph)`
 const MainSectionStyled = styled.section`
   margin: 0 0;
   padding: 40px;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #e0e0e0;
 `;
 
+/**
+ * MainSection Component
+ * Renders the main hero section of the website.
+ */
 const MainSection: React.FC = () => {
   return (
     <MainSectionStyled>

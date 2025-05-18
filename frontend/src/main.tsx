@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import { createGlobalStyle } from 'styled-components'
+import colors from '../styles/colors.ts';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -20,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${colors.darkBlue};
+    background: linear-gradient(135deg, ${colors.darkBlue}, ${colors.darkBlue2});
+    color: ${colors.white};
   }
 
   img {
@@ -33,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: ${colors.white};
   }
 
   /* Ant Design component styles */
@@ -43,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
   .ant-menu,
   .ant-form-item-label > label {
     font-family: 'Roboto', sans-serif;
+    color: ${colors.white} !important;
   }
 `;
 

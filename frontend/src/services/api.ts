@@ -17,7 +17,6 @@ const api: AxiosInstance = axios.create({
   timeout: REQUEST_TIMEOUT,
 });
 
-// Add response interceptor for error handling
 api.interceptors.response.use(
   (response) => response,
   (error: AxiosError<ApiErrorResponse>) => {
