@@ -92,6 +92,8 @@ uvicorn main:app --reload
 
 ### Frontend  
 
+- Create .env file
+
 - Build the image  
 `docker build -t frontend .`
 

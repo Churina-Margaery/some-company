@@ -11,7 +11,7 @@ RUN npm ci
 COPY . .
 
 ARG VITE_SERVER
-ENV VITE_SERVER=http://localhost:8000
+ENV VITE_SERVER=${VITE_SERVER}
 
 # Build the application
 RUN npx vite build
