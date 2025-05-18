@@ -20,6 +20,7 @@ demo: https://margaery.tishenko.dev/
 ## Setup Instructions
 
 ### Frontend
+(`Node.js` required)
 ```bash
 # Install dependencies
 npm install
@@ -27,8 +28,6 @@ npm install
 # Run development server
 npm run dev
 
-# Build
-npm run build
 ```
 
 ### Backend
@@ -50,16 +49,6 @@ uvicorn main:app --reload
 <img src="./demonstration/m-first-page.png" alt="contact page" width="200" />
 <img src="./demonstration/m-contact-page.png" alt="contact page" width="200" />
 
-### YouTube Video Optimization
-   Used `react-lite-youtube-embed`, video loads only when user interacts, improving initial page load
-
-
-### Accessibility Features
-
-- Semantic HTML structure
-- Form validation with clear error messages
-
-
 ### Styling Approach
 - Used Styled Components for component-specific styling
 - Implemented a consistent color scheme
@@ -73,8 +62,15 @@ uvicorn main:app --reload
 - Added client-side validation
 - Implemented error states and messages  
 <img src="./demonstration/error.png" alt="contact page" width="200" />
-
 - Added loading states during submission
+
+### YouTube Video Optimization
+   Used `react-lite-youtube-embed`, video loads only when user interacts, improving initial page load
+
+### Accessibility Features
+
+- Semantic HTML structure
+- Form validation with clear error messages
 
 ### Backend Integration
 - Simple Python backend to handle form submissions
@@ -84,7 +80,7 @@ uvicorn main:app --reload
 
 ### Deployment:
 - Create a `.env` file similar to `.env.example`.
-- To deploy the application on port 8125, use `docker compose up`.
+- To deploy the application, use `docker compose up`.
 - The API is available at `http://{your_url}/api`.
 
 ## Author
